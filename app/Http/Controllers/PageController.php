@@ -9,7 +9,16 @@ class PageController extends Controller
 {
     public function inicio(){
         $notas = App\Models\Note::all();
-        return view('welcome', compact('notas'));
+        $edd = 1;
+        $nota = App\Models\Note::findOrFail(1);
+        $nota3 = App\Models\Note::findOrFail(3);
+        $nota5 = App\Models\Note::findOrFail(5);
+        $data = array(
+        array("producto"=>"$nota->nombre","cantidad"=>($nota->cantidad)),
+        array("producto"=>"$nota3->nombre","cantidad"=>($nota3->cantidad)),
+        array("producto"=>"$nota5->nombre","cantidad"=>($nota5->cantidad))
+    );
+        return view('welcome', compact('notas', 'data'));
     }
 
     public function detalle($id){

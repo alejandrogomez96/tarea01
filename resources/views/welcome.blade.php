@@ -53,7 +53,16 @@
         </tbody>
         </table>
     </div>
+<?php
+use \koolreport\widgets\koolphp\Table;
+use \koolreport\widgets\google\ColumnChart;
+//$data = array($notas);
 
+ColumnChart::create(array(
+    "dataSource"=>$data
+));
+
+?>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
